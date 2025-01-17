@@ -27,7 +27,7 @@ class JuegosController extends Controller
      */
     public function create()
     {
-        //
+        return view('crearjuego');
     }
 
     /**
@@ -35,7 +35,17 @@ class JuegosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$juego = new Juego();
+        $juego->nombre = $request->input('nombre');
+        $juego->descripcion = $request->input('descripcion');
+        $juego->save();
+        return redirect()->route('listajuegos');*/
+        $request->validate([
+            'nombre' => 'required|max:10',
+            'descripcion' => 'required'
+        ]);
+        Juego::create($request->all());
+        return redirect()->route('listajuegos')->with('success', 'Juego creado con exito');
     }
 
     /**
@@ -52,7 +62,7 @@ class JuegosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
     }
 
     /**

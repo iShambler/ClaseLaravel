@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\MiController;
 use \App\Http\Controllers\TareasController;
 use \App\Http\Controllers\JuegosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,8 @@ Route::get('/mistareas',[TareasController::class,'index']); //Ruta - clase - met
 
 Route::get('/Juegos', [JuegosController::class, 'index'])->name('listajuegos');
 Route::get('/Juegos/{id}', [JuegosController::class, 'show'])->name('mostrarjuego');
+Route::get('/crearjuego', [JuegosController::class, 'create'])->name('crearjuego');
+Route::post('/Juegos', [JuegosController::class, 'store'])->name('guardarjuego');
 
 #Route::resource('/Juegos', [JuegosController::class]);asi te hace todo el crud.
 
