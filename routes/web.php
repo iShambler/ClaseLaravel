@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Juego;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\MiController;
 use \App\Http\Controllers\TareasController;
+use \App\Http\Controllers\JuegosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +22,11 @@ Route::get('/', function () {
 
 Route::get('/mipagina',[MiController::class,'inicio']); 
 Route::get('/mistareas',[TareasController::class,'index']); //Ruta - clase - metodo
+
+Route::get('/Juegos', [JuegosController::class, 'index'])->name('listajuegos');
+Route::get('/Juegos/{id}', [JuegosController::class, 'show'])->name('mostrarjuego');
+
+#Route::resource('/Juegos', [JuegosController::class]);asi te hace todo el crud.
+
+
 
